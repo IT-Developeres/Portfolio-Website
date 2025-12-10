@@ -383,6 +383,29 @@
             color: #3498db;
         }
         
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -442,20 +465,20 @@
     <!-- Projects Hero -->
     <section class="projects-hero">
         <div class="container">
-            <h1>My Projects</h1>
-            <p>Here are some of my recent works that showcase my skills and experience</p>
+            <h1 class="fade-in">My Projects</h1>
+            <p class="fade-in">Here are some of my recent works that showcase my skills and experience</p>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section class="projects-section">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>Featured Work</h2>
             </div>
             
             <!-- Filter Buttons -->
-            <div class="filter-buttons">
+            <div class="filter-buttons fade-in">
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="web">Web Development</button>
                 <button class="filter-btn" data-filter="design">UI/UX Design</button>
@@ -464,7 +487,7 @@
             </div>
             
             <!-- Projects Grid -->
-            <div class="projects-grid">
+            <div class="projects-grid slide-up">
                 <!-- Project 1 -->
                 <div class="project-card" data-category="web">
                     <div class="project-image">
@@ -680,6 +703,48 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+        
+        // Project filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-up').forEach(el => {
+            observer.observe(el);
         });
         
         // Project filtering

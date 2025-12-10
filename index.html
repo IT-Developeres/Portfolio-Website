@@ -140,7 +140,7 @@
         .typing-text span {
             position: absolute;
             top: 0;
-            right: 100%;
+            left: -100%;
             white-space: nowrap;
             animation: slideText 20s infinite;
             opacity: 0;
@@ -153,11 +153,11 @@
         .typing-text span:nth-child(5) { animation-delay: 16s; }
         
         @keyframes slideText {
-            0% { right: 100%; opacity: 0; }
-            2% { right: 0; opacity: 1; }
-            18% { right: 0; opacity: 1; }
-            20% { right: -100%; opacity: 0; }
-            100% { right: -100%; opacity: 0; }
+            0% { left: -100%; opacity: 0; }
+            2% { left: 0; opacity: 1; }
+            18% { left: 0; opacity: 1; }
+            20% { left: 100%; opacity: 0; }
+            100% { left: 100%; opacity: 0; }
         }
         
         .hero p {
@@ -431,7 +431,7 @@
     <!-- Navigation -->
     <nav>
         <div class="container nav-container">
-            <a href="index.html" class="logo">Port<span>folio</span></a>
+            <a href="index.html" class="logo">Deve<span>loper</span></a>
             
             <div class="menu-toggle" id="menuToggle">
                 <i class="fas fa-bars"></i>

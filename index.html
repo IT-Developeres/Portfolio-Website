@@ -73,6 +73,10 @@
             color: #3498db;
         }
         
+        .nav-links a.active {
+            color: #3498db;
+        }
+        
         .menu-toggle {
             display: none;
             color: white;
@@ -85,19 +89,82 @@
             padding: 150px 0 100px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .hero-image {
+            flex: 1;
             text-align: center;
+        }
+        
+        .profile-pic {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+        
+        .profile-pic:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 5px solid rgba(52, 152, 219, 0.8);
+        }
+        
+        .hero-text {
+            flex: 1;
         }
         
         .hero h1 {
             font-size: 3.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .typing-text {
+            font-size: 1.8rem;
+            color: #f39c12;
+            margin-bottom: 1.5rem;
+            height: 2.2rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .typing-text span {
+            position: absolute;
+            top: 0;
+            right: 100%;
+            white-space: nowrap;
+            animation: slideText 20s infinite;
+            opacity: 0;
+        }
+        
+        .typing-text span:nth-child(1) { animation-delay: 0s; }
+        .typing-text span:nth-child(2) { animation-delay: 4s; }
+        .typing-text span:nth-child(3) { animation-delay: 8s; }
+        .typing-text span:nth-child(4) { animation-delay: 12s; }
+        .typing-text span:nth-child(5) { animation-delay: 16s; }
+        
+        @keyframes slideText {
+            0% { right: 100%; opacity: 0; }
+            2% { right: 0; opacity: 1; }
+            18% { right: 0; opacity: 1; }
+            20% { right: -100%; opacity: 0; }
+            100% { right: -100%; opacity: 0; }
         }
         
         .hero p {
             font-size: 1.3rem;
-            max-width: 700px;
-            margin: 0 auto 2rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
+            line-height: 1.6;
         }
         
         .btn {
@@ -117,6 +184,83 @@
             background-color: #2980b9;
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Technologies Section */
+        .technologies {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .tech-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .tech-category {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        
+        .tech-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .tech-category h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            text-align: center;
+        }
+        
+        .tech-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .tech-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background-color: #3498db;
+            border-radius: 4px;
+            transition: width 2s ease-in-out;
         }
         
         /* Skills Section */
@@ -139,7 +283,6 @@
         }
         
         .section-title h2::after {
-            content: '';
             position: absolute;
             width: 70px;
             height: 3px;
@@ -202,6 +345,40 @@
             color: #3498db;
         }
         
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .slide-left {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.6s ease;
+        }
+        
+        .slide-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .menu-toggle {
@@ -227,6 +404,17 @@
             
             .nav-links li {
                 margin: 1rem 0;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+            
+            .profile-pic {
+                width: 200px;
+                height: 200px;
             }
             
             .hero h1 {
@@ -261,20 +449,276 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Hi, I'm [Your Name]</h1>
-            <p>A passionate web developer specializing in creating beautiful, functional, and user-friendly websites and applications. Welcome to my portfolio!</p>
-            <a href="projects.html" class="btn">View My Work</a>
+            <div class="hero-content">
+               
+                <div class="hero-text">
+                    <h1>Muhammad Imran</h1>
+                    <div class="typing-text">
+                        <span>Frontend Developer</span>
+                        <span>CSS Developer</span>
+                        <span>React.js Developer</span>
+                        <span>JavaScript Developer</span>
+                        <span>Full Stack Developer</span>
+                    </div>
+                    <p>A passionate web developer specializing in creating beautiful, functional, and user-friendly websites and applications. Welcome to my portfolio!</p>
+                    <a href="projects.html" class="btn">View My Work</a>
+                </div>
+                 <div class="hero-image">
+                    <img src="about.jpg" alt="Profile Picture" class="profile-pic">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Myself</h2>
+            </div>
+            <div class="about-content fade-in">
+                <p>I'm a passionate web developer with expertise in creating modern, responsive websites and applications. My journey in technology started with curiosity and has grown into a dedicated career focused on delivering exceptional digital experiences.</p>
+                
+                <p>I specialize in full-stack development using JavaScript, React, Node.js, and modern web technologies. My approach combines clean code practices with user-centered design to create solutions that are both functional and beautiful.</p>
+                
+                <p>I enjoy working on diverse projects, from simple landing pages to complex web applications. Each project teaches me something new and helps me grow as a developer. I believe in continuous learning and staying updated with the latest industry trends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section class="technologies">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Technologies</h2>
+            </div>
+            
+            <div class="tech-categories slide-left">
+                <div class="tech-category">
+                    <h3>Frontend</h3>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>HTML</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Tailwind CSS</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>JavaScript</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>React.js</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 82%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Next.js</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Backend</h3>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Express.js</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>MongoDB</span>
+                            <span>78%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Node.js</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>API Integration</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Tools</h3>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Git</span>
+                            <span>92%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 92%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>GitHub</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Vercel</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Netlify</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>VS Code</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Postman</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
+                    <h3>Other Languages</h3>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Python</span>
+                            <span>75%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>C</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>C++</span>
+                            <span>72%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 72%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>OOP</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Dart</span>
+                            <span>70%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%;"></div>
+                        </div>
+                    </div>
+                    <div class="tech-item">
+                        <div class="tech-name">
+                            <span>Flutter</span>
+                            <span>50%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 50%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Skills Section -->
     <section class="skills">
         <div class="container">
-            <div class="section-title">
+            <div class="section-title fade-in">
                 <h2>My Skills</h2>
             </div>
             
-            <div class="skills-container">
+            <div class="skills-container slide-right">
                 <div class="skill-item">
                     <i class="fas fa-code"></i>
                     <h3>Web Development</h3>
@@ -306,12 +750,12 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/IT-Developeres?"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/muhammad-imran-972364373/"><i class="fab fa-linkedin"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/share/1D9isRWV6G/"><i class="fab fa-facebook"></i></a>
             </div>
-            <p>&copy; 2023 [Your Name]. All Rights Reserved.</p>
+            <p>&copy; 2023 Muhammad Imran. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -329,6 +773,25 @@
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
             });
+        });
+        
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all animated elements
+        document.querySelectorAll('.fade-in, .slide-left, .slide-right').forEach(el => {
+            observer.observe(el);
         });
     </script>
 </body>

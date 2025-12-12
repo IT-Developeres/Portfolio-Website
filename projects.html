@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Projects | Portfolio</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Same base styles as home page */
@@ -142,7 +142,7 @@
         }
         
         .section-title h2::after {
-            /* content: ''; */
+            content: '';
             position: absolute;
             width: 70px;
             height: 3px;
@@ -269,96 +269,27 @@
             color: #2980b9;
         }
         
-        /* Project Details Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.8);
-            z-index: 2000;
-            overflow-y: auto;
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
         
-        .modal-content {
-            background-color: white;
-            margin: 50px auto;
-            max-width: 900px;
-            border-radius: 10px;
-            overflow: hidden;
-            animation: modalFade 0.5s;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
-        @keyframes modalFade {
-            from {opacity: 0; transform: translateY(-50px);}
-            to {opacity: 1; transform: translateY(0);}
+        .slide-up {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
         }
         
-        .modal-header {
-            padding: 1.5rem;
-            background-color: #2c3e50;
-            color: white;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .modal-header h2 {
-            font-size: 1.8rem;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8rem;
-            cursor: pointer;
-        }
-        
-        .modal-body {
-            padding: 2rem;
-        }
-        
-        .modal-image {
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-        }
-        
-        .modal-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .modal-description h3 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-        
-        .modal-description p {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-            color: #555;
-        }
-        
-        .modal-tech {
-            margin-bottom: 2rem;
-        }
-        
-        .modal-tech h4 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-        }
-        
-        .modal-links {
-            display: flex;
-            gap: 15px;
+        .slide-up.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         footer {
@@ -381,29 +312,6 @@
         
         .social-links a:hover {
             color: #3498db;
-        }
-        
-        /* Scroll Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .slide-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.6s ease;
-        }
-        
-        .slide-up.visible {
-            opacity: 1;
-            transform: translateY(0);
         }
         
         /* Responsive Design */
@@ -435,10 +343,6 @@
             
             .projects-grid {
                 grid-template-columns: 1fr;
-            }
-            
-            .modal-content {
-                margin: 20px;
             }
         }
     </style>
@@ -503,8 +407,8 @@
                             <span class="project-tag">Node.js</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" data-project="1">
-                                <i class="fas fa-external-link-alt"></i> View Details
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                             <a href="#" class="project-link">
                                 <i class="fab fa-github"></i> Code
@@ -528,11 +432,11 @@
                             <span class="project-tag">Prototyping</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" data-project="2">
-                                <i class="fas fa-external-link-alt"></i> View Details
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                             <a href="#" class="project-link">
-                                <i class="fas fa-eye"></i> Live Demo
+                                <i class="fas fa-eye"></i> Preview
                             </a>
                         </div>
                     </div>
@@ -553,86 +457,11 @@
                             <span class="project-tag">Socket.io</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="project-link" data-project="3">
-                                <i class="fas fa-external-link-alt"></i> View Details
+                            <a href="#" class="project-link">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
                             </a>
                             <a href="#" class="project-link">
                                 <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 4 -->
-                <div class="project-card" data-category="mobile">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" alt="Recipe Mobile App">
-                    </div>
-                    <div class="project-content">
-                        <h3>Recipe Mobile App</h3>
-                        <p>A cross-platform mobile application for discovering and saving recipes with step-by-step cooking instructions.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">React Native</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">Redux</span>
-                            <span class="project-tag">API Integration</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link" data-project="4">
-                                <i class="fas fa-external-link-alt"></i> View Details
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fab fa-github"></i> Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 5 -->
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Portfolio Website">
-                    </div>
-                    <div class="project-content">
-                        <h3>Portfolio Website</h3>
-                        <p>A responsive portfolio website for a photographer with image galleries, booking system, and blog.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">HTML/CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">PHP</span>
-                            <span class="project-tag">MySQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link" data-project="5">
-                                <i class="fas fa-external-link-alt"></i> View Details
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-eye"></i> Live Demo
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Project 6 -->
-                <div class="project-card" data-category="design">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" alt="Analytics Dashboard">
-                    </div>
-                    <div class="project-content">
-                        <h3>Analytics Dashboard UI</h3>
-                        <p>Dashboard design for a business analytics platform with data visualization and reporting features.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">UI Design</span>
-                            <span class="project-tag">Data Visualization</span>
-                            <span class="project-tag">Dashboard</span>
-                            <span class="project-tag">Wireframing</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link" data-project="6">
-                                <i class="fas fa-external-link-alt"></i> View Details
-                            </a>
-                            <a href="#" class="project-link">
-                                <i class="fas fa-eye"></i> Live Demo
                             </a>
                         </div>
                     </div>
@@ -641,43 +470,8 @@
         </div>
     </section>
 
-    <!-- Project Details Modal -->
-    <div class="modal" id="projectModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitle">Project Title</h2>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-image">
-                    <img id="modalImage" src="" alt="Project Image">
-                </div>
-                <div class="modal-description">
-                    <h3>Project Overview</h3>
-                    <p id="modalDescription">Project description will appear here.</p>
-                    
-                    <div class="modal-tech">
-                        <h4>Technologies Used</h4>
-                        <div class="project-tags" id="modalTags">
-                            <!-- Tags will be inserted here -->
-                        </div>
-                    </div>
-                    
-                    <div class="modal-links">
-                        <a href="#" class="btn" id="modalLiveLink">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="#" class="btn" id="modalCodeLink">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Footer -->
-     <footer>
+    <footer>
         <div class="container">
             <div class="social-links">
                 <a href="#"><i class="fab fa-github"></i></a>
@@ -702,29 +496,6 @@
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-            });
-        });
-        
-        // Project filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const projectCards = document.querySelectorAll('.project-card');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const filterValue = button.getAttribute('data-filter');
-                
-                // Filter projects
-                projectCards.forEach(card => {
-                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
             });
         });
         
@@ -768,86 +539,6 @@
                     }
                 });
             });
-        });
-        
-        // Project modal
-        const modal = document.getElementById('projectModal');
-        const closeModal = document.getElementById('closeModal');
-        const viewDetailsLinks = document.querySelectorAll('.project-link[data-project]');
-        
-        // Project data for modal
-        const projects = {
-            1: {
-                title: "E-commerce Platform",
-                image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80",
-                description: "A fully responsive e-commerce website built with modern web technologies. The platform includes features such as user authentication, product catalog with filtering and search, shopping cart, secure payment integration with Stripe, and an admin dashboard for managing products and orders. The frontend is built with React and Redux for state management, while the backend uses Node.js with Express and MongoDB for data storage.",
-                tags: ["HTML/CSS", "JavaScript", "React", "Redux", "Node.js", "Express", "MongoDB", "Stripe API"],
-                liveLink: "#",
-                codeLink: "#"
-            },
-            2: {
-                title: "Fitness App UI/UX",
-                image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=928&q=80",
-                description: "Complete UI/UX design for a fitness tracking mobile application. The design includes user onboarding, workout tracking, progress visualization, meal planning, and social features. I conducted user research to understand fitness enthusiasts' needs, created user personas and journey maps, designed wireframes and prototypes in Figma, and conducted usability testing to refine the design. The final design follows material design guidelines with a focus on accessibility and intuitive navigation.",
-                tags: ["Figma", "Adobe XD", "UI Design", "UX Research", "Prototyping", "User Testing", "Mobile Design"],
-                liveLink: "#",
-                codeLink: "#"
-            },
-            3: {
-                title: "Task Management App",
-                image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80",
-                description: "A full-stack task management application designed for team collaboration. The app features real-time updates using Socket.io, allowing team members to see changes instantly. Users can create projects, assign tasks, set deadlines, upload files, and track progress with visual indicators. The application includes role-based permissions, notifications, and reporting features. The tech stack includes React for the frontend, Node.js with Express for the backend, MongoDB for data storage, and Socket.io for real-time functionality.",
-                tags: ["MERN Stack", "MongoDB", "Express.js", "React", "Node.js", "Socket.io", "JWT Authentication"],
-                liveLink: "#",
-                codeLink: "#"
-            }
-        };
-        
-        // Open modal when clicking "View Details"
-        viewDetailsLinks.forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const projectId = link.getAttribute('data-project');
-                const project = projects[projectId];
-                
-                if (project) {
-                    document.getElementById('modalTitle').textContent = project.title;
-                    document.getElementById('modalImage').src = project.image;
-                    document.getElementById('modalDescription').textContent = project.description;
-                    
-                    // Update tags
-                    const tagsContainer = document.getElementById('modalTags');
-                    tagsContainer.innerHTML = '';
-                    project.tags.forEach(tag => {
-                        const tagElement = document.createElement('span');
-                        tagElement.className = 'project-tag';
-                        tagElement.textContent = tag;
-                        tagsContainer.appendChild(tagElement);
-                    });
-                    
-                    // Update links
-                    document.getElementById('modalLiveLink').href = project.liveLink;
-                    document.getElementById('modalCodeLink').href = project.codeLink;
-                    
-                    // Show modal
-                    modal.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                }
-            });
-        });
-        
-        // Close modal
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
         });
     </script>
 </body>

@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Same styles as home page */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
         
         body {
@@ -103,7 +105,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* About Page Specific Styles */
+
         .about-hero {
             padding: 150px 0 80px;
             background-color: #f1f8ff;
@@ -150,7 +152,7 @@
         }
         
         .about-text h2::after {
-            
+            content: '';
             position: absolute;
             width: 70px;
             height: 3px;
@@ -165,42 +167,9 @@
             line-height: 1.8;
         }
         
-        .skills-list {
-            margin-top: 2rem;
-        }
+
         
-        .skill-bar {
-            margin-bottom: 1.5rem;
-        }
-        
-        .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
-        }
-        
-        .skill-name {
-            font-weight: 600;
-        }
-        
-        .skill-percent {
-            color: #3498db;
-        }
-        
-        .bar {
-            height: 10px;
-            background-color: #eee;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-        
-        .progress {
-            height: 100%;
-            background-color: #3498db;
-            border-radius: 5px;
-        }
-        
-        /* Timeline Section */
+
         .timeline-section {
             padding: 80px 0;
             background-color: #f8f9fa;
@@ -220,7 +189,7 @@
         }
         
         .section-title h2::after {
-            /* content: ''; */
+            content: '';
             position: absolute;
             width: 70px;
             height: 3px;
@@ -301,6 +270,82 @@
             left: -12px;
         }
         
+
+        .achievements {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .achievement-card {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+            border-left: 4px solid #3498db;
+        }
+        
+        .achievement-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .achievement-icon {
+            font-size: 3rem;
+            color: #4285f4;
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .achievement-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .achievement-date {
+            background-color: #3498db;
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .cert-btn {
+            background-color: #4285f4;
+            color: white;
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cert-btn:hover {
+            background-color: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(66, 133, 244, 0.3);
+        }
+        
         footer {
             background-color: #2c3e50;
             color: white;
@@ -323,7 +368,7 @@
             color: #3498db;
         }
         
-        /* Scroll Animations */
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -357,7 +402,7 @@
             transform: translateX(0);
         }
         
-        /* Responsive Design */
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -410,6 +455,10 @@
             .timeline-item:nth-child(even)::after {
                 left: 21px;
             }
+            
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -435,8 +484,9 @@
     <!-- About Hero -->
     <section class="about-hero">
         <div class="container">
-            <h1 class="fade-in">About Me</h1>
-            <p class="fade-in">Get to know more about my background, skills, and experience</p>
+            <h1 class="fade-in">Frontend Developer</h1>
+            <p class="fade-in">Experienced frontend developer in Pakistan specializing in responsive
+business websites, portfolio sites and modern web design.</p>
         </div>
     </section>
 
@@ -455,6 +505,109 @@
             </div>
             <div class="about-image slide-right">
                 <img src="about.jpg" alt="About Me">
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section class="achievements">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>My Achievements</h2>
+            </div>
+            
+            <div class="achievements-grid slide-up">
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Agile Essentails</h3>
+                    <p>Completed comprehensive IT support training covering troubleshooting, customer service, networking, operating systems, system administration and security.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/agile-essential.pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Build Dynamic User-Interfaces for websites</h3>
+                    <p>Mastered data analysis skills including data cleaning, visualization, and analysis using tools like Excel, SQL, R, and Tableau.</p>
+                    <div class="achievement-date">2023</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/build-dynamic-ui.pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Design Prompt for everyday work tasks</h3>
+                    <p>Learned user experience design fundamentals, wireframing, prototyping, and user research methodologies for creating user-centered designs.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/design-prompt.pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+                
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Foundations of Digital Marketing and E-commerce</h3>
+                    <p>Developed project management skills including planning, execution, and delivery using Agile and Scrum methodologies.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/foundation-digital-marketing .pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+                 <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Foundations of User-Experience Design (UX)</h3>
+                    <p>Developed project management skills including planning, execution, and delivery using Agile and Scrum methodologies.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/foundations-of-ux.pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div> 
+                <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Google Prompting Essentails</h3>
+                    <p>Developed project management skills including planning, execution, and delivery using Agile and Scrum methodologies.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/google-prompting-essentails.pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+                 <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Accelerate Your Job search With AI</h3>
+                    <p>Developed project management skills including planning, execution, and delivery using Agile and Scrum methodologies.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/job-searc-with-ai.pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
+                 <div class="achievement-card">
+                    <div class="achievement-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <h3>Start Writing Prompts Like a Pro</h3>
+                    <p>Developed project management skills including planning, execution, and delivery using Agile and Scrum methodologies.</p>
+                    <div class="achievement-date">2025</div>
+                    <button class="cert-btn" onclick="viewCertificate('certificates/writing-prompt .pdf')">
+                        <i class="fas fa-certificate"></i> View Certificate
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -520,6 +673,11 @@
     </footer>
 
     <script>
+        // View Certificate function
+        function viewCertificate(pdfPath) {
+            window.open(pdfPath, '_blank');
+        }
+        
         // Mobile menu toggle
         const menuToggle = document.getElementById('menuToggle');
         const navLinks = document.getElementById('navLinks');

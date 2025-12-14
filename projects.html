@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Same base styles as home page */
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Outfit', sans-serif;
         }
         
         body {
@@ -103,7 +105,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
         
-        /* Projects Page Specific Styles */
+
         .projects-hero {
             padding: 150px 0 80px;
             background-color: #f1f8ff;
@@ -113,7 +115,14 @@
         .projects-hero h1 {
             font-size: 3rem;
             color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .projects-hero h3 {
+            font-size: 1.5rem;
+            color: #3498db;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
         
         .projects-hero p {
@@ -152,7 +161,7 @@
             transform: translateX(-50%);
         }
         
-        /* Filter Buttons */
+
         .filter-buttons {
             display: flex;
             justify-content: center;
@@ -182,7 +191,7 @@
             color: white;
         }
         
-        /* Projects Grid */
+
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -269,7 +278,7 @@
             color: #2980b9;
         }
         
-        /* Scroll Animations */
+
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -314,7 +323,7 @@
             color: #3498db;
         }
         
-        /* Responsive Design */
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -370,6 +379,7 @@
     <section class="projects-hero">
         <div class="container">
             <h1 class="fade-in">My Projects</h1>
+            <h3>Website Development Services</h3>
             <p class="fade-in">Here are some of my recent works that showcase my skills and experience</p>
         </div>
     </section>
